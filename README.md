@@ -1,70 +1,85 @@
-# Antminer S9 Ethernet PHY with Broadcom Support
+<div align="center">
 
-A Vivado and Vitis-based Ethernet communication project for the **Antminer S9 board**, extending the Xilinx Ethernet PHY library with support for **Broadcom PHY devices** and evaluating Ethernet communication performance using a ping-pong communication benchmark.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:7f1d1d,100:dc2626&height=220&section=header&text=Antminer%20S9%20Broadcom%20Ethernet&fontSize=34&fontColor=ffffff&fontAlignY=50&animation=fadeIn" />
 
-The project includes the complete **Vivado hardware design**, **Vitis software application**, modified Xilinx Ethernet PHY library source code, and two testbench programs for evaluating round-trip communication latency and effective bandwidth.
+</div>
+
+---
+
+# Antminer S9 Ethernet Communication with Broadcom PHY Support
+
+This project extends the Xilinx Ethernet PHY library with **Broadcom PHY support** for the **Antminer S9** board and provides a complete Vivado/Vitis-based Ethernet communication system with ping-pong performance evaluation.
+
+<div align="left">
+
+[![Vivado](https://img.shields.io/badge/Xilinx-Vivado-red?style=flat\&logo=xilinx\&logoColor=white)](https://www.xilinx.com/products/design-tools/vivado.html)
+[![Vitis](https://img.shields.io/badge/Xilinx-Vitis-orange?style=flat\&logo=xilinx\&logoColor=white)](https://www.xilinx.com/products/design-tools/vitis.html)
+[![Ethernet](https://img.shields.io/badge/Interface-Ethernet-blue?style=flat)](https://en.wikipedia.org/wiki/Ethernet)
+[![Broadcom](https://img.shields.io/badge/PHY-Broadcom-red?style=flat)](https://www.broadcom.com/)
+[![Antminer](https://img.shields.io/badge/Board-Antminer%20S9-black?style=flat)](https://shop.bitmain.com/)
+[![Benchmark](https://img.shields.io/badge/Benchmark-Ping--Pong-green?style=flat)](#ping-pong-communication-test)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
+
+</div>
 
 ## Abstract
 
-Xilinx Ethernet libraries provide support for a range of Ethernet PHY devices; however, the **Broadcom PHY integrated into the Antminer S9 board was not supported by the corresponding Xilinx PHY library**.
+The Ethernet PHY devices supported by the Xilinx Ethernet libraries do not include the **Broadcom PHY used by the Antminer S9**.
 
-This project addresses this limitation by extending the Xilinx Ethernet PHY library and adding dedicated support for the Broadcom PHY used by the Antminer S9.
+This project addresses this limitation by extending the Xilinx Ethernet PHY library and adding dedicated support for the Broadcom device.
 
-The modified PHY implementation enables the Xilinx Ethernet driver to identify and communicate with the Broadcom device while preserving the existing PHY support provided by the Xilinx library.
+The modified driver includes Broadcom PHY identification, model detection, and Ethernet speed detection while preserving the existing PHY support provided by the Xilinx library.
 
-The complete hardware/software system was developed using **Vivado and Vitis**, with the Vitis application based on the built-in **Echo Server** example. Ethernet communication performance was evaluated using a **ping-pong test methodology**, measuring round-trip time (RTT), effective bandwidth, latency distribution, and cumulative latency statistics.
+A complete hardware/software communication system was developed using **Xilinx Vivado and Vitis**. The software implementation is based on the standard **Echo Server** example provided by Vitis.
 
-Two versions of the communication test program are included:
+To evaluate the communication performance, a **ping-pong benchmark** was developed on the host system. Two test implementations are provided: a baseline implementation and an optimized implementation that applies warm-up iterations, thread-priority control, timer-resolution configuration, and high-resolution timing.
 
-* A baseline implementation without additional system-level optimization.
-* An optimized implementation using warm-up iterations, high thread priority, timer-resolution configuration, and high-resolution performance counters.
-
-The results demonstrate a significant reduction in communication latency and improved effective bandwidth after applying the optimization techniques.
+The system was evaluated using **20,000 communication samples** on three different host configurations. The results demonstrate significant improvements in RTT stability and effective bandwidth after applying the optimization techniques.
 
 ---
 
 ## Table of Contents
 
-1. [Overview](#-overview)
-2. [Objectives](#-objectives)
-3. [System Architecture](#-system-architecture)
-4. [Hardware Platform](#-hardware-platform)
-5. [Software Environment](#-software-environment)
-6. [Broadcom PHY Support](#-broadcom-phy-support)
-7. [Vitis Echo Server Application](#-vitis-echo-server-application)
-8. [Ping-Pong Communication Test](#-ping-pong-communication-test)
-9. [Performance Optimization](#-performance-optimization)
-10. [Performance Results](#-performance-results)
-11. [Latency Analysis](#-latency-analysis)
-12. [Project Structure](#-project-structure)
-13. [Vivado Project](#-vivado-project)
-14. [Vitis Project](#-vitis-project)
-15. [Installation and Usage](#-installation-and-usage)
-16. [Test Procedure](#-test-procedure)
-17. [Future Improvements](#-future-improvements)
-18. [Contributing](#-contributing)
-19. [License](#-license)
-20. [Author](#-author)
+1. [Overview](#overview)
+2. [Objectives](#objectives)
+3. [System Architecture](#system-architecture)
+4. [Broadcom PHY Support](#broadcom-phy-support)
+5. [Vivado Hardware Design](#vivado-hardware-design)
+6. [Vitis Echo Server](#vitis-echo-server)
+7. [Ping-Pong Communication Test](#ping-pong-communication-test)
+8. [Performance Optimization](#performance-optimization)
+9. [Performance Results](#performance-results)
+10. [Latency Analysis](#latency-analysis)
+11. [Project Structure](#project-structure)
+12. [Installation and Usage](#installation-and-usage)
+13. [Running the Tests](#running-the-tests)
+14. [Future Improvements](#future-improvements)
+15. [Contributing](#contributing)
+16. [License](#license)
+17. [Author](#author)
+18. [Support](#support)
 
 ---
 
 # 📌 Overview
 
-The **Antminer S9** contains a Broadcom Ethernet PHY that is not natively supported by the corresponding Xilinx Ethernet PHY library.
+The **Antminer S9** provides an Ethernet interface based on a Broadcom PHY device. However, the Broadcom PHY used in this platform was not included in the PHY devices supported by the Xilinx Ethernet library.
 
-As a result, applications running on the Xilinx processing system cannot directly use the standard PHY detection and speed configuration mechanisms for this device.
+Consequently, the standard Xilinx Ethernet driver could not properly identify and handle the PHY.
 
-This project extends the Xilinx PHY implementation by adding support for the Broadcom PHY and integrates the modified library into a complete Vivado/Vitis Ethernet communication system.
+This project extends the Xilinx PHY implementation to add support for the Broadcom device while maintaining compatibility with the existing PHY implementations.
 
-The project consists of three main components:
+The complete project consists of:
 
-* 🧩 **Vivado hardware design**
-* 💻 **Vitis software application**
-* 📊 **Ping-pong communication performance evaluation**
+* 🧩 Vivado hardware design
+* 💻 Vitis software application
+* 🔧 Modified Xilinx Ethernet PHY driver
+* 🌐 Broadcom PHY support
+* 🔄 Vitis Echo Server
+* 📊 Ping-pong communication benchmark
+* 📈 Latency and bandwidth analysis
 
-The Vitis application is based on the standard **Echo Server** example provided by Vitis. The echo server receives Ethernet packets from the host system and sends the received data back to the sender.
-
-This behavior provides a suitable environment for measuring round-trip communication performance.
+The project was developed and tested using the **Antminer S9** board.
 
 ---
 
@@ -72,86 +87,57 @@ This behavior provides a suitable environment for measuring round-trip communica
 
 The main objectives of this project are:
 
-* Add **Broadcom PHY support** to the Xilinx Ethernet PHY library.
-* Enable Ethernet communication on the **Antminer S9** board.
-* Preserve the existing PHY support provided by the Xilinx library.
-* Integrate the modified PHY library into a complete **Vivado/Vitis** project.
-* Use the Vitis **Echo Server** example for Ethernet communication.
-* Develop a ping-pong benchmark for communication performance evaluation.
-* Measure round-trip latency and effective bandwidth.
-* Analyze latency variations and operating-system-related latency spikes.
-* Reduce measurement noise using system-level optimization techniques.
-* Compare baseline and optimized communication performance.
+* Add support for the Broadcom PHY used by the Antminer S9.
+* Extend the Xilinx Ethernet PHY library without removing existing PHY support.
+* Develop a complete Vivado hardware project.
+* Develop the corresponding Vitis software project.
+* Run the Vitis Echo Server on the target platform.
+* Develop a ping-pong communication benchmark.
+* Measure round-trip communication latency.
+* Evaluate effective communication bandwidth.
+* Analyze latency variation and outliers.
+* Reduce measurement noise caused by operating-system scheduling.
+* Compare baseline and optimized measurement configurations.
 
 ---
 
 # 🏗 System Architecture
 
-The overall system consists of a host computer communicating with the Ethernet interface of the Antminer S9 board.
+The overall communication path consists of a host computer, Ethernet connection, Antminer S9 Ethernet PHY, Xilinx Ethernet driver, and the Vitis Echo Server.
 
-```text
-┌──────────────────────────────┐
-│        Host Computer         │
-│                              │
-│  Ping-Pong Test Application  │
-│                              │
-│  ┌────────────────────────┐  │
-│  │ Packet Generation      │  │
-│  │ RTT Measurement        │  │
-│  │ Performance Analysis   │  │
-│  └────────────────────────┘  │
-└──────────────┬───────────────┘
-               │
-               │ Ethernet
-               │
-               ▼
-┌──────────────────────────────┐
-│        Antminer S9           │
-│                              │
-│  ┌────────────────────────┐  │
-│  │ Broadcom Ethernet PHY  │  │
-│  └────────────┬───────────┘  │
-│               │               │
-│  ┌────────────▼───────────┐  │
-│  │ Xilinx Ethernet Driver │  │
-│  │ + Broadcom PHY Support │  │
-│  └────────────┬───────────┘  │
-│               │               │
-│  ┌────────────▼───────────┐  │
-│  │ Vitis Echo Server      │  │
-│  └────────────────────────┘  │
-└──────────────────────────────┘
+```mermaid
+flowchart LR
+
+    A[Host Computer]
+
+    B[Ping-Pong Test<br/>Application]
+
+    C[Ethernet Link]
+
+    D[Antminer S9]
+
+    E[Broadcom<br/>Ethernet PHY]
+
+    F[Xilinx Ethernet<br/>Driver]
+
+    G[Vitis<br/>Echo Server]
+
+    A --> B
+    B --> C
+    C --> E
+    E --> F
+    F --> G
+
+    G --> F
+    F --> E
+    E --> C
+    C --> B
+    B --> A
 ```
 
-The host sends a packet to the Antminer S9. The Echo Server receives the packet and immediately sends it back to the host.
+The host sends a packet to the Echo Server running on the Antminer S9. The server echoes the received packet back to the host.
 
 The elapsed time between transmission and reception is measured as the **Round-Trip Time (RTT)**.
-
----
-
-# 🖥 Hardware Platform
-
-## Antminer S9
-
-The target hardware platform used in this project is the **Antminer S9**.
-
-The board provides an Ethernet interface based on a **Broadcom PHY device**.
-
-The main challenge addressed by this project is that the Broadcom PHY was not included in the supported PHY devices of the Xilinx Ethernet library used by the project.
-
-Therefore, the PHY driver had to be extended manually.
-
-### Hardware Components
-
-| Component               | Description  |
-| ----------------------- | ------------ |
-| Target Board            | Antminer S9  |
-| Ethernet PHY            | Broadcom     |
-| FPGA/SoC Platform       | Xilinx-based |
-| Development Tool        | Vivado       |
-| Software Tool           | Vitis        |
-| Communication Interface | Ethernet     |
-| Application             | Echo Server  |
 
 ---
 
@@ -159,203 +145,270 @@ Therefore, the PHY driver had to be extended manually.
 
 ## Motivation
 
-The standard Xilinx Ethernet PHY library provides support for several PHY vendors and devices.
+The original Xilinx Ethernet PHY library supports multiple PHY vendors and devices.
 
-However, the Broadcom PHY used by the Antminer S9 was not included in the supported device list.
+However, the Broadcom PHY used by the Antminer S9 was not included in the supported PHY list.
 
-Therefore, the original PHY implementation could not properly identify and configure the Broadcom device.
-
-To solve this problem, Broadcom-specific PHY identification and speed-detection logic was added to the Xilinx Ethernet PHY library.
+Therefore, the PHY driver was extended to recognize and communicate with the Broadcom device.
 
 ---
 
-## Driver Modifications
+## Driver Extension
 
-The modified PHY implementation includes:
+The modified PHY implementation adds:
 
-* Broadcom PHY identifier definition.
-* Broadcom PHY model definitions.
+* Broadcom PHY identifier.
 * Broadcom PHY model mask.
+* Broadcom B50612 model definition.
 * Broadcom PHY identification.
 * Broadcom PHY speed detection.
-* Broadcom-specific PHY initialization support.
-* Integration with the existing IEEE PHY speed detection mechanism.
-* Broadcom support in the PHY identification logic.
+* Broadcom-specific PHY handling.
+* Integration with the existing IEEE PHY speed-detection mechanism.
 
-The modification was performed while preserving the existing Xilinx implementations for other PHY vendors.
+The modification was implemented directly inside the Xilinx Ethernet PHY source code.
 
-Therefore, the modified library supports both the original PHY devices and the newly added Broadcom device.
+The existing support for other PHY vendors remains unchanged.
 
-### Supported Broadcom Device
+---
 
-The implementation specifically includes support for the Broadcom **B50612** family.
+## Broadcom PHY Detection
 
-The driver also contains model detection for:
+The driver identifies the Broadcom PHY and checks the corresponding model information.
+
+The implementation includes support for the Broadcom B50612 family, including model detection for:
 
 ```text
 B50612D
 B50612E
 ```
 
-This allows the PHY implementation to distinguish between supported Broadcom models.
+The PHY identification mechanism is integrated into the existing Xilinx PHY detection flow.
 
 ---
 
-# 💻 Vitis Echo Server Application
+## Broadcom Speed Detection
 
-The software running on the Antminer S9 is based on the standard **Echo Server** example provided by Vitis.
+The Broadcom-specific speed detection logic reads the relevant PHY registers and determines the negotiated or forced Ethernet speed.
 
-The Echo Server implements a simple request-response communication mechanism:
+The implementation supports detection of:
 
 ```text
-Host
- │
- │ Ethernet Packet
- ▼
-Antminer S9
- │
- │ Echo
- ▼
-Host
+10 Mbps
+100 Mbps
+1000 Mbps
 ```
 
-This makes the application suitable for evaluating communication latency because every transmitted packet generates a corresponding response.
+The Broadcom branch is integrated into the existing IEEE PHY speed-detection function.
 
-No application-level processing is required between reception and transmission, allowing the benchmark to primarily observe the Ethernet communication path and software/networking overhead.
+---
+
+# 🖥 Vivado Hardware Design
+
+The hardware portion of the project was developed using **Xilinx Vivado**.
+
+The Vivado project provides the hardware platform required by the Vitis software application.
+
+The generated hardware platform is subsequently exported to Vitis, where the Echo Server application is built.
+
+The complete Vivado project is included in the repository so that the hardware design can be reproduced and modified.
+
+---
+
+# 💻 Vitis Echo Server
+
+The software application running on the Antminer S9 is based on the standard **Echo Server example provided by Vitis**.
+
+The Echo Server follows a simple request-response communication model:
+
+```mermaid
+sequenceDiagram
+
+    participant H as Host
+    participant S as Antminer S9
+    participant E as Echo Server
+
+    H->>S: Send Ethernet Packet
+    S->>E: Receive Packet
+    E->>S: Echo Packet
+    S->>H: Return Packet
+
+    Note over H,S: RTT Measurement
+```
+
+This application provides a simple and repeatable environment for evaluating Ethernet communication latency.
 
 ---
 
 # 🔄 Ping-Pong Communication Test
 
-Two test programs are included in the project for evaluating Ethernet communication performance.
+Two test programs are included for measuring the communication performance:
 
-The test follows a ping-pong communication pattern.
+### 1. Baseline Test
 
-For every iteration:
+The baseline test measures the communication performance without additional system-level optimization.
+
+### 2. Optimized Test
+
+The optimized test applies several techniques to reduce measurement overhead and operating-system interference.
+
+---
+
+## Test Procedure
+
+For every sample:
 
 1. The host sends a packet.
 2. The Antminer S9 receives the packet.
-3. The Echo Server sends the packet back.
+3. The Vitis Echo Server returns the packet.
 4. The host receives the response.
 5. The RTT is calculated.
-6. The result is recorded.
+6. The measurement is stored.
 
-The test is repeated for:
+The process is repeated for:
 
 ```text
 20,000 samples
 ```
 
-The measured parameters include:
-
-* Round-Trip Time (RTT)
-* Average RTT
-* Robust average RTT
-* Median RTT
-* Standard deviation
-* Minimum RTT
-* Maximum RTT
-* Effective bandwidth
-* Cumulative latency distribution
-
 ---
 
 # ⚙️ Performance Optimization
 
-The baseline implementation was affected by operating-system scheduling and other system-level effects.
+The baseline measurements showed occasional large latency spikes.
 
-In particular, occasional latency spikes can be observed due to **operating-system context switching**.
+These spikes are primarily attributed to **operating-system scheduling and context switching** on the host system.
 
-To reduce these effects, several optimizations were applied to the measurement application.
+To reduce these effects, the optimized benchmark applies several techniques.
+
+---
 
 ## 🔥 Warm-Up
 
-Before starting the actual measurement, the application performs:
+Before collecting the actual measurements, the application performs:
 
 ```text
 1,000 send/receive iterations
 ```
 
-These warm-up iterations are intended to eliminate initial overheads such as:
+These iterations are not included in the final statistics.
 
-* Initial buffer allocation
+The warm-up phase is intended to remove initial overhead such as:
+
+* Buffer allocation
 * Cache initialization
-* Network stack initialization
+* Network-stack initialization
 * Other one-time system overheads
 
-Only the measurements collected after the warm-up phase are used for the final performance analysis.
+```mermaid
+flowchart LR
+
+    A[Start Test]
+    B[1000 Warm-Up<br/>Iterations]
+    C[Start Measurement]
+    D[20000 Samples]
+    E[Statistical Analysis]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ---
 
-## 🚀 Thread Priority
+# 🚀 Thread Priority
 
-The measurement thread is assigned the highest possible Windows thread priority using:
+The optimized benchmark raises the priority of the measurement thread using:
 
-```text
-THREAD_PRIORITY_TIME_CRITICAL
+```cpp
+SetThreadPriority(
+    threadHandle,
+    THREAD_PRIORITY_TIME_CRITICAL
+);
 ```
 
-The implementation also disables temporary priority boosting using:
+The benchmark also disables temporary priority boosting:
 
-```text
-SetThreadPriorityBoost(False)
+```cpp
+SetThreadPriorityBoost(
+    threadHandle,
+    FALSE
+);
 ```
 
-This reduces the possibility of temporary scheduler-induced interruptions during the measurement process.
+This configuration reduces the probability of scheduler-induced interruptions during the measurement phase.
 
 ---
 
-## ⏱ Timer Resolution
+# ⏱ Timer Resolution
 
-The application uses:
+The optimized implementation uses:
 
-```text
-timeBeginPeriod(1)
+```cpp
+timeBeginPeriod(1);
 ```
 
-This requests a system timer resolution of approximately **1 ms**.
+This requests approximately **1 ms system timer resolution**.
 
-This configuration is useful for operations such as:
+This setting is useful for system-level timing functions such as:
 
-```text
+```cpp
 time.sleep()
 ```
 
-and other system-level timing functions.
-
-It does not directly determine the resolution of the `perf_counter_ns()` measurement.
+However, it does not directly determine the resolution of `perf_counter_ns()`.
 
 ---
 
-## 📏 High-Resolution Measurement
+# 📏 High-Resolution Timing
 
 RTT measurements are performed using:
 
-```text
+```python
 perf_counter_ns()
 ```
 
-This provides a high-resolution performance counter suitable for measuring short communication intervals.
+The measurement process follows:
 
-The timestamps are taken immediately before packet transmission and after receiving the corresponding response.
+```text
+Timestamp 1
+    ↓
+Send Packet
+    ↓
+Wait for Echo
+    ↓
+Receive Packet
+    ↓
+Timestamp 2
+    ↓
+RTT = Timestamp 2 - Timestamp 1
+```
+
+Using a high-resolution performance counter allows short communication intervals to be measured with high precision.
 
 ---
 
 # 📊 Performance Results
 
-Three different host-system configurations were evaluated.
+Three host-system configurations were evaluated.
 
-The experiments include:
+Each configuration was tested using:
 
-1. Baseline system without optimization.
-2. Optimized measurement on a medium-performance system.
-3. Optimized measurement on a high-performance system.
+```text
+20,000 samples
+```
+
+The evaluated systems include:
+
+* Baseline system without optimization.
+* Optimized system with a medium-performance configuration.
+* Optimized system with a high-performance configuration.
 
 ---
 
-## 1. Baseline System — No Optimization
+# 🧪 Baseline System — No Optimization
 
-The first experiment was performed without the optimization techniques described above.
+The first experiment was performed without the additional optimization techniques.
 
 | Metric                |      Result |
 | --------------------- | ----------: |
@@ -367,24 +420,22 @@ The first experiment was performed without the optimization techniques described
 | Standard Deviation    |    0.795 ms |
 | Minimum RTT           |    0.128 ms |
 | Maximum RTT           |   29.946 ms |
-| RTT ≤ 0.122 ms        |   0 samples |
+| RTT ≤ 0.122 ms        |           0 |
 | Percentage ≤ 0.122 ms |       0.00% |
 
-The maximum RTT of approximately **29.946 ms** demonstrates the presence of significant latency spikes.
+The maximum RTT reaches approximately **29.946 ms**, indicating significant latency spikes.
 
-These spikes are attributed to operating-system scheduling and context-switching effects during the measurement process.
+These spikes are attributed to operating-system scheduling and context-switching effects.
 
 ---
 
-# 2. Optimized System — Medium Configuration
+# ⚡ Optimized System — Medium Configuration
 
-The second experiment applies the optimization techniques, including the warm-up stage and improved system configuration.
-
-### Results
+The second experiment applies the optimized measurement methodology on a medium-performance host system.
 
 | Metric                |      Result |
 | --------------------- | ----------: |
-| Total Samples         |      20,000 |
+| Samples               |      20,000 |
 | Total Execution Time  |    4.0197 s |
 | Effective Bandwidth   | 9951.00 B/s |
 | Effective Bandwidth   |  0.080 Mbps |
@@ -394,61 +445,57 @@ The second experiment applies the optimization techniques, including the warm-up
 | Standard Deviation    |    0.011 ms |
 | Minimum RTT           |    0.131 ms |
 | Maximum RTT           |    0.399 ms |
-| RTT ≤ 0.122 ms        |   0 samples |
+| RTT ≤ 0.122 ms        |           0 |
 | Percentage ≤ 0.122 ms |       0.00% |
 
-Compared with the baseline configuration, the optimized configuration significantly reduces the variation in latency.
+The optimized configuration significantly reduces latency variation.
 
-The maximum observed RTT decreases from:
+The maximum RTT decreases from:
 
 ```text
 29.946 ms → 0.399 ms
 ```
 
-and the standard deviation decreases from:
+while the standard deviation decreases from:
 
 ```text
 0.795 ms → 0.011 ms
 ```
 
-This demonstrates the importance of controlling the execution environment during low-latency communication measurements.
-
 ---
 
-# 3. Optimized System — High-Performance Configuration
+# 🚀 Optimized System — High-Performance Configuration
 
-The third experiment was performed on a more powerful host system using the optimized measurement configuration.
+The third experiment was performed on a more powerful host system using the optimized benchmark.
 
-### Results
+| Metric                |       Result |
+| --------------------- | -----------: |
+| Samples               |       20,000 |
+| Total Execution Time  |     1.5299 s |
+| Effective Bandwidth   | 26146.06 B/s |
+| Effective Bandwidth   |   0.209 Mbps |
+| Average RTT           |     0.076 ms |
+| Robust Average RTT    |     0.068 ms |
+| Median RTT            |     0.071 ms |
+| Standard Deviation    |     0.052 ms |
+| Minimum RTT           |     0.049 ms |
+| Maximum RTT           |     2.912 ms |
+| RTT ≤ 0.122 ms        |       19,289 |
+| Percentage ≤ 0.122 ms |       96.45% |
 
-| Metric                |         Result |
-| --------------------- | -------------: |
-| Total Samples         |         20,000 |
-| Total Execution Time  |       1.5299 s |
-| Effective Bandwidth   |   26146.06 B/s |
-| Effective Bandwidth   |     0.209 Mbps |
-| Average RTT           |       0.076 ms |
-| Robust Average RTT    |       0.068 ms |
-| Median RTT            |       0.071 ms |
-| Standard Deviation    |       0.052 ms |
-| Minimum RTT           |       0.049 ms |
-| Maximum RTT           |       2.912 ms |
-| RTT ≤ 0.122 ms        | 19,289 samples |
-| Percentage ≤ 0.122 ms |         96.45% |
-
-The optimized high-performance configuration achieves the lowest average latency:
+The optimized high-performance configuration achieves an average RTT of only:
 
 ```text
 0.076 ms
 ```
 
-and the highest effective bandwidth:
+and an effective bandwidth of:
 
 ```text
 0.209 Mbps
 ```
 
-Furthermore, **96.45% of the measurements have an RTT below 0.122 ms**.
+Furthermore, **96.45% of all measurements have an RTT below 0.122 ms**.
 
 ---
 
@@ -460,8 +507,8 @@ Furthermore, **96.45% of the measurements have an RTT below 0.122 ms**.
 | Execution Time |   6.2238 s |           4.0197 s |         1.5299 s |
 | Bandwidth      | 0.051 Mbps |         0.080 Mbps |       0.209 Mbps |
 | Average RTT    |   0.310 ms |           0.199 ms |         0.076 ms |
-| Median RTT     |          — |           0.196 ms |         0.071 ms |
 | Robust Average |          — |           0.198 ms |         0.068 ms |
+| Median RTT     |          — |           0.196 ms |         0.071 ms |
 | Std. Deviation |   0.795 ms |           0.011 ms |         0.052 ms |
 | Minimum RTT    |   0.128 ms |           0.131 ms |         0.049 ms |
 | Maximum RTT    |  29.946 ms |           0.399 ms |         2.912 ms |
@@ -471,79 +518,80 @@ Furthermore, **96.45% of the measurements have an RTT below 0.122 ms**.
 
 # 📉 Latency Analysis
 
-The project includes several visualization results generated from the ping-pong measurements.
+The collected measurements are further analyzed using several visualization methods.
 
-These figures can be placed in the `figures/` directory.
+The repository contains three main types of plots:
 
-## Latency per Transmission
-
-The first visualization shows the RTT measured for every packet transmission.
-
-```text
-figures/
-└── latency_per_sample.png
-```
-
-This plot is useful for identifying:
-
-* Latency spikes
-* System scheduling effects
-* Communication stability
-* Outlier measurements
+* Latency for every individual transmission.
+* Cumulative percentage of samples.
+* Cumulative distribution of RTT measurements.
 
 ---
 
-## Cumulative Percentage of Samples
+## Latency per Transmission
 
-The cumulative percentage plot shows the percentage of measurements below different RTT thresholds.
+The latency plot shows the RTT measured for each of the 20,000 transmissions.
 
-```text
-figures/
-└── cumulative_percentage.png
-```
+<p align="center">
+<img src="figures/latency_per_sample.png" width="100%">
+</p>
 
-This visualization provides a direct representation of the percentage of packets achieving a specific latency target.
+This visualization makes it possible to identify:
+
+* Latency spikes.
+* Outliers.
+* Communication stability.
+* Operating-system scheduling effects.
+
+---
+
+## Cumulative Percentage
+
+The cumulative percentage plot shows how many samples satisfy a given latency threshold.
+
+<p align="center">
+<img src="figures/cumulative_percentage.png" width="100%">
+</p>
+
+This visualization is particularly useful for evaluating the percentage of communication transactions achieving a specific latency target.
 
 ---
 
 ## Cumulative Distribution
 
-The cumulative distribution visualization provides another view of the RTT distribution across all collected samples.
+The cumulative distribution plot provides a statistical representation of the RTT distribution.
 
-```text
-figures/
-└── cumulative_distribution.png
-```
+<p align="center">
+<img src="figures/cumulative_distribution.png" width="100%">
+</p>
 
-Together, these plots provide a more complete characterization of the communication latency than average RTT alone.
-
-> **Note:** The actual figure filenames can be updated in this README to match the files included in the repository.
+For the high-performance optimized configuration, **96.45% of samples have an RTT below 0.122 ms**.
 
 ---
 
 # 📁 Project Structure
 
-The repository is organized into separate Vivado, Vitis, driver, benchmark, and analysis components.
+The repository contains the complete hardware/software project together with the modified PHY driver and performance tests.
 
 ```text
-Antminer-S9-Ethernet-PHY-Broadcom-Support
+Antminer-S9-Broadcom-Ethernet-PHY-Support
 │
 ├── vivado/
-│   └── <Vivado project files>
+│   └── Vivado hardware project
 │
 ├── vitis/
-│   └── <Vitis workspace and application files>
+│   └── Vitis software project
 │
 ├── drivers/
-│   └── xilinx/
+│   └── Xilinx Ethernet PHY driver
 │       └── xemacpsif_physpeed.c
 │
 ├── tests/
 │   ├── ping_pong_baseline/
-│   │   └── <baseline test application>
+│   │   └── baseline benchmark
 │   │
 │   └── ping_pong_optimized/
-│       └── <optimized test application>
+│       └── optimized benchmark
 │
 ├── results/
 │   ├── baseline/
@@ -556,206 +604,195 @@ Antminer-S9-Ethernet-PHY-Broadcom-Support
 │   └── cumulative_distribution.png
 │
 ├── README.md
+│
 └── LICENSE
 ```
 
----
-
-# 🛠 Vivado Project
-
-The Vivado project contains the hardware design required to run the Ethernet communication system on the Antminer S9 platform.
-
-The hardware project is responsible for configuring the target Xilinx system and providing the hardware platform required by the Vitis application.
-
-The generated hardware platform is exported to Vitis, where the Echo Server application is built and executed.
-
----
-
-# 💻 Vitis Project
-
-The Vitis project contains the software application running on the target hardware.
-
-The main application is based on the Vitis **Echo Server** example.
-
-The modified Xilinx Ethernet PHY library is integrated into the software platform to provide Broadcom PHY support.
-
-The application can therefore initialize the Ethernet interface and communicate with the Broadcom PHY used by the Antminer S9.
+> **Note:** The directory names above can be adjusted to exactly match the final repository structure.
 
 ---
 
 # 🚀 Installation and Usage
 
-## Requirements
-
-The project requires:
-
-* Xilinx Vivado
-* Xilinx Vitis
-* Antminer S9 board
-* Ethernet connection
-* Host computer
-* Modified Xilinx Ethernet PHY library
-
-The exact Vivado/Vitis version used for the project should preferably be kept consistent when reproducing the results.
-
----
-
-## Clone the Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/Antminer-S9-Ethernet-PHY-Broadcom-Support.git
+git clone https://github.com/<your-username>/Antminer-S9-Broadcom-Ethernet-PHY-Support.git
 
-cd Antminer-S9-Ethernet-PHY-Broadcom-Support
+cd Antminer-S9-Broadcom-Ethernet-PHY-Support
 ```
 
 ---
 
-# 🏗 Build the Vivado Project
+## Vivado
 
-1. Open the Vivado project located in the `vivado/` directory.
-2. Verify the target board/device configuration.
-3. Generate the required hardware design.
+Open the Vivado project located in:
+
+```text
+vivado/
+```
+
+Then:
+
+1. Open the project.
+2. Verify the target hardware configuration.
+3. Generate the hardware design.
 4. Generate the bitstream.
-5. Export the generated hardware platform for Vitis.
+5. Export the hardware platform for Vitis.
 
 ---
 
-# 💻 Build the Vitis Project
+## Vitis
 
-1. Open Vitis.
-2. Import the exported hardware platform.
-3. Import or create the Echo Server application.
-4. Make sure the modified Ethernet PHY library is used.
-5. Build the application.
-6. Program the Antminer S9.
-7. Start the Echo Server.
+Open the exported hardware platform in Vitis.
+
+The software application is based on the Vitis Echo Server example.
+
+Build the application and program the Antminer S9.
+
+The modified Xilinx Ethernet PHY driver must be included during the build process.
 
 ---
 
-# 🧪 Test Procedure
+# 🧪 Running the Tests
 
 After the Echo Server is running on the Antminer S9:
 
-1. Connect the host computer to the board through Ethernet.
-2. Start the ping-pong test application.
-3. Send a packet to the Echo Server.
-4. Wait for the echoed packet.
-5. Calculate RTT.
-6. Repeat the process for 20,000 samples.
-7. Store the measured RTT values.
-8. Generate the latency and cumulative-distribution plots.
-9. Compare the results between the baseline and optimized configurations.
+### Baseline Test
+
+Run the baseline ping-pong application:
+
+```bash
+python ping_pong_baseline.py
+```
+
+### Optimized Test
+
+Run the optimized implementation:
+
+```bash
+python ping_pong_optimized.py
+```
+
+The benchmark collects:
+
+```text
+20,000 samples
+```
+
+and reports:
+
+* Total execution time.
+* Effective bandwidth.
+* Average RTT.
+* Robust average RTT.
+* Median RTT.
+* Standard deviation.
+* Minimum RTT.
+* Maximum RTT.
+* Percentage of samples below a selected RTT threshold.
 
 ---
 
-# 📌 Important Notes
+# ⚠️ Measurement Considerations
 
-The latency measurements are affected by the operating system running the benchmark application.
+The measured RTT represents the latency of the complete communication path between the host and the Echo Server.
 
-In particular, **context switching and scheduler activity can introduce occasional latency spikes**.
+Therefore, the result is influenced by:
 
-For more consistent measurements, the benchmark process should ideally:
+* Host operating-system scheduling.
+* Context switching.
+* Network-stack processing.
+* Host CPU performance.
+* Ethernet driver processing.
+* Xilinx Ethernet MAC.
+* Broadcom PHY.
+* Echo Server software.
 
-* Run with high priority.
-* Be assigned to a specific CPU core.
-* Use a warm-up phase before collecting measurements.
-* Use a high-resolution performance counter.
-* Minimize unnecessary background processes.
+In particular, isolated latency peaks can occur due to operating-system context switching.
 
-Therefore, the reported latency should be interpreted as an experimental measurement of the complete host-to-board communication path rather than as an absolute hardware-only PHY latency.
+For more deterministic measurements, the benchmark process should ideally be assigned a high priority and pinned to a dedicated CPU core.
 
 ---
 
 # 🔮 Future Improvements
 
-Several improvements can be considered for future versions of the project:
+## 🔧 PHY Driver
 
-### PHY Driver
-
-* Extend support to additional Broadcom PHY models.
+* Add support for additional Broadcom PHY models.
 * Improve Broadcom PHY initialization.
 * Add automatic PHY configuration.
-* Add more detailed PHY diagnostics.
-* Improve portability across Xilinx Ethernet driver versions.
+* Add additional PHY diagnostics.
+* Improve compatibility across Xilinx library versions.
 
-### Performance Measurement
+## ⚡ Performance
 
 * Pin the benchmark process to a dedicated CPU core.
-* Perform measurements on a real-time operating system.
-* Reduce operating-system scheduling interference.
-* Add packet-size sweep experiments.
-* Evaluate throughput at different Ethernet configurations.
-* Analyze packet loss and jitter.
+* Evaluate real-time operating-system configurations.
+* Reduce background-system interference.
+* Evaluate different packet sizes.
+* Measure packet loss and jitter.
+* Perform long-duration stability tests.
 
-### Hardware
+## 🧩 Hardware
 
-* Investigate hardware-level timestamping.
-* Compare PHY and MAC latency.
+* Investigate hardware timestamping.
+* Separate MAC and PHY latency.
+* Add hardware performance counters.
 * Evaluate different Ethernet configurations.
-* Integrate hardware performance counters.
 
-### Analysis
+## 📊 Analysis
 
-* Add automated result generation.
-* Add statistical confidence intervals.
-* Compare additional host systems.
-* Automate latency-distribution analysis.
+* Automate benchmark result generation.
+* Add confidence intervals.
+* Add automated outlier detection.
+* Compare additional host configurations.
+* Generate latency reports automatically.
 
 ---
 
 # 🤝 Contributing
 
-Contributions and improvements are welcome.
-
-Possible contributions include:
-
-* Supporting additional Broadcom PHY devices.
-* Improving the PHY driver implementation.
-* Adding additional Ethernet benchmarks.
-* Improving the performance-analysis scripts.
-* Adding new visualization methods.
-* Testing the project on other Xilinx-based boards.
+Contributions are welcome.
 
 Feel free to:
 
-* Open an issue.
-* Submit a pull request.
-* Report bugs.
+* Open Issues.
+* Submit Pull Requests.
 * Suggest improvements.
+* Report bugs.
+* Add support for additional Broadcom PHY devices.
+* Improve the performance benchmark.
 
 ---
 
-# 📄 License
+# License
 
 This project is licensed under the **MIT License**.
 
-Please note that the modified Xilinx source files may be subject to the original licensing terms of the Xilinx/Vitis software distribution.
+The modified Xilinx source files may also be subject to the original licensing terms of the corresponding Xilinx/Vitis software distribution.
 
 ---
 
-# 👤 Author
+## Author
 
 **Behzad Jannati**
 
 M.Sc. Student in Computer Engineering — Computer Architecture
 University of Tehran
 
-Research Interests:
-
-* Computer Architecture
-* FPGA and Hardware Acceleration
-* Embedded AI Systems
-* Hardware/Software Co-Design
-* Ethernet and Networked Embedded Systems
-* Hardware Security
-* Machine Learning Systems
+**Research Interests:** Computer Architecture, FPGA, Hardware/Software Co-Design, Embedded AI Systems, Hardware Security, Ethernet Communication, and Machine Learning Systems.
 
 ---
 
 # ⭐ Support
 
-If you find this project useful, consider giving the repository a ⭐.
+If you find this project useful, consider giving the repository a star ⭐
 
 ---
 
-Built with ❤️ using **Xilinx Vivado, Vitis, and the Antminer S9 Ethernet platform**.
+<p align="center">
+
+Built with ❤️ using **Xilinx Vivado, Vitis, and the Antminer S9 Ethernet platform**
+
+</p>
