@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:7f1d1d,100:dc2626&height=220&section=header&text=Antminer%20S9%20Broadcom%20Ethernet&fontSize=34&fontColor=ffffff&fontAlignY=50&animation=fadeIn" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:7f1d1d,100:dc2626&height=220&section=header&text=Xilinx%20%20Broadcom%20Ethernet&fontSize=34&fontColor=ffffff&fontAlignY=50&animation=fadeIn" />
 
 </div>
 
 ---
 
-# Antminer S9 Ethernet Communication with Broadcom PHY Support
+# Xilinx Ethernet Communication with Broadcom PHY Support
 
 This project extends the Xilinx Ethernet PHY library with **Broadcom PHY support** for the **Antminer S9** board and provides a complete Vivado/Vitis-based Ethernet communication system with ping-pong performance evaluation.
 
