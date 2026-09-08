@@ -1,0 +1,155 @@
+20:19:25 INFO  : updated workspace path: D:\Ethernet_Communication_Project\eproject_1
+20:19:25 INFO  : created .gitignore file for the project D:\Ethernet_Communication_Project\eproject_1
+20:19:25 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\repo.py -st   C:\Xilinx2024\Vitis\2024.2\data\embeddedsw && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:19:26 INFO  : Successfully created repository data at D:\Ethernet_Communication_Project\eproject_1/_ide\.wsdata
+20:19:26 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\get_template_data.py -d C:\Users\Asus\AppData\Local\Temp\rigel_lopper_Asus16951787401910075582 -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:19:26 INFO  : Embedded Template List generated successfully
+20:21:13 INFO  : Found no platform with name 'design_1_wrapper' in install repositories
+20:21:14 INFO  : Using sdt generation script from C:\Xilinx2024\Vitis\2024.2\vitis-server\scripts\platformutil.tcl
+20:21:14 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && xsct.bat C:\Xilinx2024\Vitis\2024.2\vitis-server\scripts\platformutil.tcl D:\Ethernet_Communication_Project\eproject_1\design_1_wrapper.xsa D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper_temp_platform\design_1_wrapper\hw\sdt && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:18 INFO  : SDT generated successfully
+20:21:18 INFO  : Lopper command for cpu List generation: lopper --enhanced --werror -f -O D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper -i C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Lib\site-packages\lopper\lops\lop-cpu-oslist.dts D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper_temp_platform\design_1_wrapper\hw\sdt\system-top.dts
+20:21:18 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper --enhanced --werror -f -O D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper -i C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Lib\site-packages\lopper\lops\lop-cpu-oslist.dts D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper_temp_platform\design_1_wrapper\hw\sdt\system-top.dts && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:19 INFO  : CPU List generated successfully
+20:21:28 INFO  : Platform platform creation started.
+20:21:28 INFO  : Found no platform with name 'design_1_wrapper' in install repositories
+20:21:29 INFO  : Lopper command for cpu List generation: lopper --enhanced --werror -f -O D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper -i C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Lib\site-packages\lopper\lops\lop-cpu-oslist.dts D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts
+20:21:29 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper --enhanced --werror -f -O D:\Ethernet_Communication_Project\eproject_1\.rigel_lopper -i C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Lib\site-packages\lopper\lops\lop-cpu-oslist.dts D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:29 INFO  : CPU List generated successfully
+20:21:29 INFO  : SDT generated successfully.
+20:21:29 INFO  : created .gitignore file for the project D:\Ethernet_Communication_Project\eproject_1\platform
+20:21:29 INFO  : ZYNQ: Using the QEMU args from install at  : C:\Xilinx2024\Vitis\2024.2\data\emulation\platforms\zynq\sw\a9_linux\qemu\qemu_args.txt
+20:21:29 INFO  : ZYNQ: Using the QEMU args from install at  : C:\Xilinx2024\Vitis\2024.2\data\emulation\platforms\zynq\sw\a9_standalone\qemu\qemu_args.txt
+20:21:29 INFO  : ZYNQ: Using the QEMU args from install at  : C:\Xilinx2024\Vitis\2024.2\data\emulation\platforms\zynq\sw\a9_standalone\qemu\qemu_args.txt
+20:21:29 INFO  : lopper command to generate BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//create_bsp.py -w D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -p ps7_cortexa9_0 -o standalone -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -t empty_application -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml
+20:21:29 INFO  : lopper command to generate BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//create_bsp.py -w D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -p ps7_cortexa9_0 -o standalone -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -t zynq_fsbl -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml
+20:21:29 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\create_bsp.py -w D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -p ps7_cortexa9_0 -o standalone -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -t empty_application -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:29 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\create_bsp.py -w D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -p ps7_cortexa9_0 -o standalone -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -t zynq_fsbl -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:39 INFO  : Successfully created Domain at D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:21:39 INFO  : Successfully Generated Domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:21:39 INFO  : Domain standalone_ps7_cortexa9_0 added successfully.
+20:21:39 INFO  : Successfully created Domain at D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:21:39 INFO  : Successfully Generated Domain D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:21:39 INFO  : lopper command to create baremetal application :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//create_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -t zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -n fsbl -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml
+20:21:39 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\validate_bsp.py -t zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:41 INFO  : Successfully validated template zynq_fsbl
+20:21:41 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\create_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -t zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -n fsbl -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:21:43 INFO  : Successfully Created Application sources at D:/Ethernet_Communication_Project/eproject_1/platform/zynq_fsbl
+20:21:43 INFO  : Successfully created Application D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl
+20:21:43 INFO  : Platform FSBL Boot domain added successfully.
+20:21:43 INFO  : Platform creation finished successfully.
+20:21:43 INFO  : Platform Quick Build initiated.
+20:21:43 INFO  : Generating Export directory
+20:21:43 INFO  : Generated platform metadata for creating application(s) based on platform platform.
+20:22:03 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper -O  . D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -- baremetal_getsupported_comp_xlnx ps7_cortexa9_0 D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:04 INFO  : Supported Library List generated.
+20:22:06 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:06 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:06 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:06 INFO  : Domain reconfigured successfully
+20:22:06 INFO  : Adding Library to the given BSP D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:07 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\config_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -al  lwip220 C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\ThirdParty\sw_services\lwip220_v1_1 -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:18 INFO  : Library added to BSP successfully
+20:22:18 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper -O  . D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -- baremetal_getsupported_comp_xlnx ps7_cortexa9_0 D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:19 INFO  : Supported Library List generated.
+20:22:29 INFO  : Regenerating BSP 
+20:22:29 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:29 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:29 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:30 INFO  : Domain reconfigured successfully
+20:22:30 INFO  : lopper command to regenerate BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//regen_bsp.py -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml
+20:22:30 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\regen_bsp.py -s D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:45 INFO  : -- Configuring done
+20:22:45 INFO  : -- Generating done
+20:22:45 INFO  : -- Build files have been written to: D:/Ethernet_Communication_Project/eproject_1/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp
+20:22:45 INFO  : Successfully created Domain at D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:45 INFO  : BSP regenerated successfully
+20:22:45 INFO  : BSP regeneration finished successfully
+20:22:46 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper -O  . D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -- baremetal_getsupported_comp_xlnx ps7_cortexa9_0 D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:46 INFO  : Supported Library List generated.
+20:22:59 INFO  : BSP build will be initiated for Domain standalone_ps7_cortexa9_0
+20:22:59 INFO  : BSP build will be initiated for Domain zynq_fsbl
+20:22:59 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:59 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:22:59 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:59 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:22:59 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:59 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:59 INFO  : Domain reconfigured successfully
+20:22:59 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:22:59 INFO  : lopper command to build BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:22:59 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:22:59 INFO  : Domain reconfigured successfully
+20:22:59 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:59 INFO  : lopper command to build BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:22:59 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:23:07 INFO  : Domain build successfully
+20:23:13 INFO  : Domain build successfully
+20:23:13 INFO  : Generating Boot ELFs
+20:23:13 INFO  : lopper command to retarget baremetal application :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//retarget_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:23:13 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\retarget_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:23:14 INFO  : Successfully retargeted Application D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl
+20:23:14 INFO  : lopper command to build baremetal application :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:23:14 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:23:17 INFO  : Successfully building the baremetal applicationD:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:23:17 INFO  : Generating Export directory
+20:23:17 INFO  : Platform Build Finished successfully.
+20:24:23 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\validate_bsp.py -t lwip_echo_server -d D:\Ethernet_Communication_Project\eproject_1\platform\export\platform\sw\standalone_ps7_cortexa9_0 -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:24:25 ERROR : ERROR: lwip_echo_server requires at least one timer hardware instance to be present
+20:24:25 ERROR : Invalid Template  'lwip_echo_server' selected for Domain 'standalone_ps7_cortexa9_0'.
+20:25:08 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:08 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:08 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:09 INFO  : Domain reconfigured successfully
+20:25:09 INFO  : Updating the given parameters of library in BSP D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:09 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\config_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -st xiltimer XILTIMER_en_interval_timer:true -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:10 INFO  : -- Configuring done
+20:25:10 INFO  : -- Generating done
+20:25:10 INFO  : CMake Warning:
+20:25:10 INFO  :   Manually-specified variables were not used by the project:
+20:25:10 INFO  : 
+20:25:10 INFO  :     CMAKE_TOOLCHAIN_FILE
+20:25:10 INFO  : 
+20:25:10 INFO  : 
+20:25:10 INFO  : -- Build files have been written to: D:/Ethernet_Communication_Project/eproject_1/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp
+20:25:10 INFO  : Updated the library parameters successfully
+20:25:10 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && lopper -O  . D:\Ethernet_Communication_Project\eproject_1\platform\hw\sdt\system-top.dts -- baremetal_getsupported_comp_xlnx ps7_cortexa9_0 D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:10 INFO  : Supported Library List generated.
+20:25:26 INFO  : BSP build will be initiated for Domain zynq_fsbl
+20:25:26 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:25:26 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:25:26 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:26 INFO  : BSP build will be initiated for Domain standalone_ps7_cortexa9_0
+20:25:26 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:26 INFO  : lopper command to reconfigure BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:26 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:27 INFO  : Domain reconfigured successfully
+20:25:27 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:25:27 INFO  : lopper command to build BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp
+20:25:27 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:27 INFO  : Domain reconfigured successfully
+20:25:27 INFO  : Generating BSP for the domain D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:27 INFO  : lopper command to build BSP :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+20:25:27 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\Ethernet_Communication_Project\eproject_1\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:27 INFO  : Domain build successfully
+20:25:32 INFO  : Domain build successfully
+20:25:32 INFO  : Generating Boot ELFs
+20:25:32 INFO  : lopper command to retarget baremetal application :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//retarget_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:25:32 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\retarget_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -d D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\zynq_fsbl_bsp -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:32 INFO  : Successfully retargeted Application D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl
+20:25:32 INFO  : lopper command to build baremetal application :python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:25:32 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_app.py -s D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl -b D:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:33 INFO  : Successfully building the baremetal applicationD:\Ethernet_Communication_Project\eproject_1\platform\zynq_fsbl\build
+20:25:33 INFO  : Generating Export directory
+20:25:33 INFO  : Platform Build Finished successfully.
+20:25:56 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\validate_bsp.py -t lwip_echo_server -d D:\Ethernet_Communication_Project\eproject_1\platform\export\platform\sw\standalone_ps7_cortexa9_0 -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:25:57 ERROR : ERROR: lwip_echo_server requires at least one timer hardware instance to be present
+20:25:57 ERROR : Invalid Template  'lwip_echo_server' selected for Domain 'standalone_ps7_cortexa9_0'.
+20:26:38 INFO  : cmd.exe, /C, C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\validate_bsp.py -t lwip_udp_perf_server -d D:\Ethernet_Communication_Project\eproject_1\platform\export\platform\sw\standalone_ps7_cortexa9_0 -r D:\Ethernet_Communication_Project\eproject_1\_ide\.wsdata\.repo.yaml && C:\Xilinx2024\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+20:26:39 ERROR : ERROR: lwip_udp_perf_server requires at least one timer hardware instance to be present
+20:26:39 ERROR : Invalid Template  'lwip_udp_perf_server' selected for Domain 'standalone_ps7_cortexa9_0'.
+20:26:56 INFO  : connection terminated
+20:26:56 INFO  : connection terminated
+20:26:56 INFO  : scheduling shutdown timer for 2 seconds ...
+20:26:58 INFO  : Terminating Vitis C++ Server
+20:26:58 INFO  : Vitis C++ Server terminated
