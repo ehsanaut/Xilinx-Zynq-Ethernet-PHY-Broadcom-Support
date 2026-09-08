@@ -1,0 +1,959 @@
+sdt: hw_artifacts\ps7_cortexa9_0_baremetal.dts
+family: Zynq
+path: D:\Ethernet_Communication_Project\eproject_1\sw\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+config: None
+os: standalone
+os_info:
+  standalone:
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\lib\bsp\standalone_v9_2
+os_config:
+  standalone:
+    standalone_enable_sw_intrusive_profiling:
+      name: standalone_enable_sw_intrusive_profiling
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: This option is not supported in the Unified Vitis IDE in this version.
+        Change to the classic IDE if you want to use this option
+    standalone_microblaze_exceptions:
+      name: standalone_microblaze_exceptions
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: Unused option and deprecated
+    standalone_pmu_sleep_timer:
+      name: standalone_pmu_sleep_timer
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: Deprecated in favor of xiltimer
+    standalone_profile_timer:
+      name: standalone_profile_timer
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: This option is not supported in the Unified Vitis IDE in this version.
+        Change to the classic IDE if you want to use this option
+    standalone_sleep_timer:
+      name: standalone_sleep_timer
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: Deprecated in favor of xiltimer
+    standalone_stdin:
+      name: standalone_stdin
+      permission: read_write
+      type: string
+      value: ps7_uart_1
+      default: ps7_uart_1
+      options:
+      - None
+      - ps7_uart_1
+      - ps7_coresight_comp_0
+      description: stdin peripheral
+    standalone_stdout:
+      name: standalone_stdout
+      permission: read_write
+      type: string
+      value: ps7_uart_1
+      default: ps7_uart_1
+      options:
+      - None
+      - ps7_uart_1
+      - ps7_coresight_comp_0
+      description: stdout peripheral
+    standalone_ttc_select_cntr:
+      name: standalone_ttc_select_cntr
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: Deprecated in favor of xiltimer
+    standalone_xpm_support:
+      name: standalone_xpm_support
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      description: This option is not supported in the Unified Vitis IDE in this version.
+        Change to the classic IDE if you want to use this option.
+toolchain_file: cortexa9_toolchain.cmake
+specs_file: Xilinx.spec
+proc: ps7_cortexa9_0
+proc_config:
+  ps7_cortexa9_0:
+    proc_archiver:
+      name: proc_archiver
+      permission: readonly
+      type: string
+      value: arm-none-eabi-gcc-ar.exe
+      default: arm-none-eabi-gcc-ar.exe
+      options: []
+      description: Archiver used to archive libraries for both BSP generation as well
+        as applications.
+    proc_assembler:
+      name: proc_assembler
+      permission: readonly
+      type: string
+      value: arm-none-eabi-gcc
+      default: arm-none-eabi-gcc
+      options: []
+      description: Assembler used to assemble both BSP/libraries and applications.
+    proc_compiler:
+      name: proc_compiler
+      permission: readonly
+      type: string
+      value: arm-none-eabi-gcc.exe
+      default: arm-none-eabi-gcc.exe
+      options: []
+      description: Compiler used to compile both BSP/libraries and applications.
+    proc_compiler_flags:
+      name: proc_compiler_flags
+      permission: readonly
+      type: string
+      value: ' -O2 -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard;-c'
+      default: ' -O2 -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard;-c'
+      options: []
+      description: Compiler Flags used in BSP and library generation.'-c'flag stands
+        for 'compile and assemble, but do not link'.Without this flag, gcc tries to
+        link the code, which will fail because there is no application involved during
+        libgen.'-O2' can be overwritten by extra compile flags.
+    proc_extra_compiler_flags:
+      name: proc_extra_compiler_flags
+      permission: read_write
+      type: string
+      value: ' -g -Wall -Wextra -fno-tree-loop-distribute-patterns'
+      default: ' -g -Wall -Wextra -fno-tree-loop-distribute-patterns'
+      options: []
+      description: Extra Compiler Flags used in BSP and library generation
+template: empty_application
+compiler_flags: ''
+include_folder: include
+lib_folder: lib
+libsrc_folder: libsrc
+drv_info:
+  ps7_afi_0: None
+  ps7_afi_1: None
+  ps7_afi_2: None
+  ps7_afi_3: None
+  ps7_coresight_comp_0:
+    driver: coresightps_dcc
+    ip_name: ps7_coresight_comp
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\coresightps_dcc_v1_11
+  ps7_ddrc_0: None
+  ps7_dev_cfg_0:
+    driver: devcfg
+    ip_name: ps7_dev_cfg
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\devcfg_v3_8
+  ps7_dma_ns: None
+  ps7_dma_s:
+    driver: dmaps
+    ip_name: ps7_dma
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\dmaps_v2_11
+  ps7_ethernet_0:
+    driver: emacps
+    ip_name: ps7_ethernet
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\emacps_v3_21
+  ps7_globaltimer_0: None
+  ps7_gpv_0: None
+  ps7_intc_dist_0:
+    driver: scugic
+    ip_name: ps7_intc_dist
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\scugic_v5_4
+  ps7_iop_bus_config_0: None
+  ps7_ocmc_0: None
+  ps7_pl310_0: None
+  ps7_pmu_0: None
+  ps7_scuc_0: None
+  ps7_scutimer_0:
+    driver: scutimer
+    ip_name: ps7_scutimer
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\scutimer_v2_6
+  ps7_scuwdt_0:
+    driver: scuwdt
+    ip_name: ps7_scuwdt
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\scuwdt_v2_6
+  ps7_sd_0:
+    driver: sdps
+    ip_name: ps7_sdio
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\sdps_v4_4
+  ps7_slcr_0: None
+  ps7_ttc_0:
+    driver: ttcps
+    ip_name: ps7_ttc
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\ttcps_v3_20
+  ps7_uart_1:
+    driver: uartps
+    ip_name: ps7_uart
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\uartps_v3_15
+  ps7_xadc_0:
+    driver: xadcps
+    ip_name: ps7_xadc
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\XilinxProcessorIPLib\drivers\xadcps_v2_7
+lib_info:
+  xiltimer:
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\lib\sw_services\xiltimer_v2_1
+  lwip220:
+    path: C:\Xilinx2024\Vitis\2024.2\data\embeddedsw\ThirdParty\sw_services\lwip220_v1_1
+lib_config:
+  xiltimer:
+    XILTIMER_en_interval_timer:
+      name: XILTIMER_en_interval_timer
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Enable Interval Timer
+    XILTIMER_sleep_timer:
+      name: XILTIMER_sleep_timer
+      permission: read_write
+      type: string
+      value: Default
+      default: Default
+      options:
+      - Default
+      - ps7_ttc_0
+      - ps7_scutimer_0
+      description: This parameter is used to select specific timer for sleep functionality
+    XILTIMER_tick_timer:
+      name: XILTIMER_tick_timer
+      permission: read_write
+      type: string
+      value: None
+      default: None
+      options:
+      - None
+      - ps7_ttc_0
+      - ps7_scutimer_0
+      description: This parameter is used to select specific timer for tick functionality
+  lwip220:
+    lwip220_acd_debug:
+      name: lwip220_acd_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug acd feature
+    lwip220_api_mode:
+      name: lwip220_api_mode
+      permission: read_write
+      type: string
+      value: RAW_API
+      default: RAW_API
+      options:
+      - RAW_API
+      - SOCKET_API
+      description: Mode of operation for lwIP (RAW API/Sockets API)
+    lwip220_arp_queueing:
+      name: lwip220_arp_queueing
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options:
+      - '0'
+      - '1'
+      description: If enabled outgoing packets are queued during hardware address
+        resolution.
+    lwip220_arp_table_size:
+      name: lwip220_arp_table_size
+      permission: read_write
+      type: integer
+      value: '10'
+      default: '10'
+      options: []
+      description: Number of active hardware address IP address pairs cached.
+    lwip220_debug:
+      name: lwip220_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Turn on lwIP Debug?
+    lwip220_debug_options:
+      name: lwip220_debug_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Turn on lwIP Debug?
+    lwip220_default_tcp_recvmbox_size:
+      name: lwip220_default_tcp_recvmbox_size
+      permission: read_write
+      type: integer
+      value: '200'
+      default: '200'
+      options: []
+      description: Size of TCP receive mbox queue.
+    lwip220_default_udp_recvmbox_size:
+      name: lwip220_default_udp_recvmbox_size
+      permission: read_write
+      type: integer
+      value: '100'
+      default: '100'
+      options: []
+      description: Size of UDP receive mbox queue.
+    lwip220_dhcp:
+      name: lwip220_dhcp
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Is DHCP required?
+    lwip220_dhcp_debug:
+      name: lwip220_dhcp_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug dhcp protocol
+    lwip220_dhcp_options:
+      name: lwip220_dhcp_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Is DHCP required?
+    lwip220_icmp_debug:
+      name: lwip220_icmp_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug ICMP protocol
+    lwip220_icmp_options:
+      name: lwip220_icmp_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: ICMP Options
+    lwip220_icmp_ttl:
+      name: lwip220_icmp_ttl
+      permission: read_write
+      type: integer
+      value: '255'
+      default: '255'
+      options: []
+      description: ICMP TTL value
+    lwip220_igmp_debug:
+      name: lwip220_igmp_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug IGMP protocol
+    lwip220_igmp_options:
+      name: lwip220_igmp_options
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: IGMP Options
+    lwip220_ip_debug:
+      name: lwip220_ip_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug IP layer
+    lwip220_ip_default_ttl:
+      name: lwip220_ip_default_ttl
+      permission: read_write
+      type: integer
+      value: '255'
+      default: '255'
+      options: []
+      description: Global default TTL used by transport layers
+    lwip220_ip_forward:
+      name: lwip220_ip_forward
+      permission: read_write
+      type: integer
+      value: '0'
+      default: '0'
+      options:
+      - '0'
+      - '1'
+      description: Enable forwarding IP packets across network interfaces.
+    lwip220_ip_frag:
+      name: lwip220_ip_frag
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options:
+      - '0'
+      - '1'
+      description: Fragment outgoing IP packets if their size exceeds MTU
+    lwip220_ip_frag_max_mtu:
+      name: lwip220_ip_frag_max_mtu
+      permission: read_write
+      type: integer
+      value: '1500'
+      default: '1500'
+      options: []
+      description: Assumed max MTU on any interface for IP frag buffer
+    lwip220_ip_options:
+      name: lwip220_ip_options
+      permission: read_write
+      type: integer
+      value: '0'
+      default: '0'
+      options:
+      - '0'
+      - '1'
+      description: 1 = IP options are allowed (but not parsed). 0 = packets with IP
+        options are dropped
+    lwip220_ip_reass_max_pbufs:
+      name: lwip220_ip_reass_max_pbufs
+      permission: read_write
+      type: integer
+      value: '128'
+      default: '128'
+      options: []
+      description: Reassembly PBUF Queue Length
+    lwip220_ip_reassembly:
+      name: lwip220_ip_reassembly
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options:
+      - '0'
+      - '1'
+      description: Reassemble incoming fragmented IP packets
+    lwip220_ipv6_enable:
+      name: lwip220_ipv6_enable
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: IPv6 enable value
+    lwip220_ipv6_options:
+      name: lwip220_ipv6_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: IPv6 Options
+    lwip220_lwip_dhcp_does_acd_check:
+      name: lwip220_lwip_dhcp_does_acd_check
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: ACD check on offered addresses?
+    lwip220_lwip_tcpip_core_locking_input:
+      name: lwip220_lwip_tcpip_core_locking_input
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: TCPIP input core locking
+    lwip220_mem_size:
+      name: lwip220_mem_size
+      permission: read_write
+      type: integer
+      value: '131072'
+      default: '131072'
+      options: []
+      description: Size of the heap memory (bytes).
+    lwip220_memp_n_pbuf:
+      name: lwip220_memp_n_pbuf
+      permission: read_write
+      type: integer
+      value: '16'
+      default: '16'
+      options: []
+      description: Number of memp struct pbufs. Set this high if application sends
+        lot of data out of ROM
+    lwip220_memp_n_sys_timeout:
+      name: lwip220_memp_n_sys_timeout
+      permission: read_write
+      type: integer
+      value: '8'
+      default: '8'
+      options: []
+      description: Number of simultaneously active timeouts
+    lwip220_memp_n_tcp_pcb:
+      name: lwip220_memp_n_tcp_pcb
+      permission: read_write
+      type: integer
+      value: '32'
+      default: '32'
+      options: []
+      description: Number of active TCP PCBs. One per active TCP connection
+    lwip220_memp_n_tcp_pcb_listen:
+      name: lwip220_memp_n_tcp_pcb_listen
+      permission: read_write
+      type: integer
+      value: '8'
+      default: '8'
+      options: []
+      description: Number of listening TCP connections
+    lwip220_memp_n_tcp_seg:
+      name: lwip220_memp_n_tcp_seg
+      permission: read_write
+      type: integer
+      value: '256'
+      default: '256'
+      options: []
+      description: Number of simultaneously queued TCP segments
+    lwip220_memp_n_udp_pcb:
+      name: lwip220_memp_n_udp_pcb
+      permission: read_write
+      type: integer
+      value: '4'
+      default: '4'
+      options: []
+      description: Number of active UDP PCBs. One per active UDP connection
+    lwip220_memp_num_api_msg:
+      name: lwip220_memp_num_api_msg
+      permission: read_write
+      type: integer
+      value: '16'
+      default: '16'
+      options: []
+      description: Number of api msg structures (socket mode only)
+    lwip220_memp_num_netbuf:
+      name: lwip220_memp_num_netbuf
+      permission: read_write
+      type: integer
+      value: '8'
+      default: '8'
+      options: []
+      description: Number of struct netbufs (socket mode only)
+    lwip220_memp_num_netconn:
+      name: lwip220_memp_num_netconn
+      permission: read_write
+      type: integer
+      value: '16'
+      default: '16'
+      options: []
+      description: Number of struct netconns (socket mode only)
+    lwip220_memp_num_tcpip_msg:
+      name: lwip220_memp_num_tcpip_msg
+      permission: read_write
+      type: integer
+      value: '64'
+      default: '64'
+      options: []
+      description: Number of tcpip msg structures (socket mode only)
+    lwip220_n_rx_coalesce:
+      name: lwip220_n_rx_coalesce
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options: []
+      description: Setting for RX Interrupt coalescing.
+    lwip220_n_rx_descriptors:
+      name: lwip220_n_rx_descriptors
+      permission: read_write
+      type: integer
+      value: '64'
+      default: '64'
+      options: []
+      description: Number of RX Buffer Descriptors to be used in SDMA mode
+    lwip220_n_tx_coalesce:
+      name: lwip220_n_tx_coalesce
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options: []
+      description: Setting for TX Interrupt coalescing.
+    lwip220_n_tx_descriptors:
+      name: lwip220_n_tx_descriptors
+      permission: read_write
+      type: integer
+      value: '64'
+      default: '64'
+      options: []
+      description: Number of TX Buffer Descriptors to be used in SDMA mode
+    lwip220_netif_debug:
+      name: lwip220_netif_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug network interface layer
+    lwip220_no_sys_no_timers:
+      name: lwip220_no_sys_no_timers
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Drops support for sys_timeout when NO_SYS==1
+    lwip220_pbuf_debug:
+      name: lwip220_pbuf_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug pbuf layer
+    lwip220_pbuf_link_hlen:
+      name: lwip220_pbuf_link_hlen
+      permission: read_write
+      type: integer
+      value: '16'
+      default: '16'
+      options: []
+      description: Number of bytes that should be allocated for a link level header.
+    lwip220_pbuf_pool_bufsize:
+      name: lwip220_pbuf_pool_bufsize
+      permission: read_write
+      type: integer
+      value: '1700'
+      default: '1700'
+      options: []
+      description: Size of each pbuf in pbuf pool.
+    lwip220_pbuf_pool_size:
+      name: lwip220_pbuf_pool_size
+      permission: read_write
+      type: integer
+      value: '256'
+      default: '256'
+      options: []
+      description: Number of buffers in pbuf pool.
+    lwip220_socket_mode_thread_prio:
+      name: lwip220_socket_mode_thread_prio
+      permission: read_write
+      type: integer
+      value: '2'
+      default: '2'
+      options: []
+      description: Priority of threads in socket mode
+    lwip220_stats:
+      name: lwip220_stats
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Turn on lwIP statistics?
+    lwip220_stats_options:
+      name: lwip220_stats_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Turn on lwIP statistics?
+    lwip220_sys_debug:
+      name: lwip220_sys_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug sys arch layer
+    lwip220_tcp:
+      name: lwip220_tcp
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Is TCP required ?
+    lwip220_tcp_debug:
+      name: lwip220_tcp_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug TCP layer
+    lwip220_tcp_keepalive:
+      name: lwip220_tcp_keepalive
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Enable keepalive processing with default interval
+    lwip220_tcp_maxrtx:
+      name: lwip220_tcp_maxrtx
+      permission: read_write
+      type: integer
+      value: '12'
+      default: '12'
+      options: []
+      description: TCP Maximum retransmission value
+    lwip220_tcp_mss:
+      name: lwip220_tcp_mss
+      permission: read_write
+      type: integer
+      value: '1460'
+      default: '1460'
+      options: []
+      description: TCP Maximum segment size (bytes)
+    lwip220_tcp_options:
+      name: lwip220_tcp_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Is TCP required ?
+    lwip220_tcp_queue_ooseq:
+      name: lwip220_tcp_queue_ooseq
+      permission: read_write
+      type: integer
+      value: '1'
+      default: '1'
+      options:
+      - '0'
+      - '1'
+      description: Should TCP queue segments arriving out of order. Set to 0 if your
+        device is low on memory
+    lwip220_tcp_snd_buf:
+      name: lwip220_tcp_snd_buf
+      permission: read_write
+      type: integer
+      value: '8192'
+      default: '8192'
+      options: []
+      description: TCP sender buffer space (bytes)
+    lwip220_tcp_synmaxrtx:
+      name: lwip220_tcp_synmaxrtx
+      permission: read_write
+      type: integer
+      value: '4'
+      default: '4'
+      options: []
+      description: TCP Maximum SYN retransmission value
+    lwip220_tcp_ttl:
+      name: lwip220_tcp_ttl
+      permission: read_write
+      type: integer
+      value: '255'
+      default: '255'
+      options: []
+      description: TCP TTL value
+    lwip220_tcp_wnd:
+      name: lwip220_tcp_wnd
+      permission: read_write
+      type: integer
+      value: '2048'
+      default: '2048'
+      options: []
+      description: TCP Window (bytes)
+    lwip220_tcpip_mbox_size:
+      name: lwip220_tcpip_mbox_size
+      permission: read_write
+      type: integer
+      value: '200'
+      default: '200'
+      options: []
+      description: Size of TCPIP mbox queue.
+    lwip220_temac_emac_number:
+      name: lwip220_temac_emac_number
+      permission: read_write
+      type: integer
+      value: '0'
+      default: '0'
+      options: []
+      description: Zynq Ethernet Interface number
+    lwip220_temac_phy_link_speed:
+      name: lwip220_temac_phy_link_speed
+      permission: read_write
+      type: string
+      value: CONFIG_LINKSPEED_AUTODETECT
+      default: CONFIG_LINKSPEED_AUTODETECT
+      options:
+      - CONFIG_LINKSPEED10
+      - CONFIG_LINKSPEED100
+      - CONFIG_LINKSPEED1000
+      - CONFIG_LINKSPEED_AUTODETECT
+      description: link speed as negotiated by the PHY
+    lwip220_temac_tcp_ip_rx_checksum_offload:
+      name: lwip220_temac_tcp_ip_rx_checksum_offload
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Offload TCP and IP Receive checksum calculation (hardware support
+        required)
+    lwip220_temac_tcp_ip_tx_checksum_offload:
+      name: lwip220_temac_tcp_ip_tx_checksum_offload
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Offload TCP and IP Transmit checksum calculation (hardware support
+        required)
+    lwip220_temac_tcp_rx_checksum_offload:
+      name: lwip220_temac_tcp_rx_checksum_offload
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Offload TCP Receive checksum calculation (hardware support required)
+    lwip220_temac_tcp_tx_checksum_offload:
+      name: lwip220_temac_tcp_tx_checksum_offload
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Offload TCP Transmit checksum calculation (hardware support required)
+    lwip220_temac_use_jumbo_frames:
+      name: lwip220_temac_use_jumbo_frames
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: use jumbo frames
+    lwip220_udp:
+      name: lwip220_udp
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: Is UDP required
+    lwip220_udp_block_tx:
+      name: lwip220_udp_block_tx
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Application sending a UDP packet blocks till the pkt is txed
+    lwip220_udp_debug:
+      name: lwip220_udp_debug
+      permission: read_write
+      type: boolean
+      value: 'false'
+      default: 'false'
+      options:
+      - 'true'
+      - 'false'
+      description: Debug UDP layer
+    lwip220_udp_options:
+      name: lwip220_udp_options
+      permission: read_write
+      type: boolean
+      value: 'true'
+      default: 'true'
+      options:
+      - 'true'
+      - 'false'
+      description: UDP Options
+    lwip220_udp_ttl:
+      name: lwip220_udp_ttl
+      permission: read_write
+      type: integer
+      value: '255'
+      default: '255'
+      options: []
+      description: UDP TTL value
